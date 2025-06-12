@@ -3,6 +3,15 @@ package s3progflow;
 public class E2ExpressionSwitch {
   public static void main(String[] args) {
     String s = "Hello";
+
+    switch (s) {
+      case "Goodbye" -> {
+        System.out.println("Au revoir");
+        System.out.println("nope");
+      }
+      case "Hello", "Guten Tag" -> System.out.println("Bonjour");
+    }
+
     var result = switch (s) {
       case "Goodbye" -> "Au revoir";
       case "Hello" -> "Bonjour";
@@ -15,7 +24,7 @@ public class E2ExpressionSwitch {
 
     Suit card = Suit.CLUB;
     // enums are easier to cover all input possibilities
-    System.out.println(switch(card) {
+    System.out.println(switch (card) {
       case CLUB, SPADE -> "Black"; // alternation using commas (only for constants)
       // qualified form permitted now (required if switch expression is not of the enum type!)
       case Suit.DIAMOND, Suit.HEART -> "Red";

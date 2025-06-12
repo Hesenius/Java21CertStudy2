@@ -24,6 +24,8 @@ class Parent {
     return name;
   }
   public Parent() {
+    // implicit super();
+    // implicit INSTANCE initlalization
     System.out.println("Parent() constructor; name is " + name
         + ", getName() is " + getName());
   }
@@ -41,6 +43,8 @@ class Child extends Parent {
   private String name = "unset";
   { System.out.println("Child instance init 2; name is " + this.name); }
   public Child(String n) {
+    // implicit super();
+    // implicit INSTANCE initialization
     System.out.println("In body of Child(String) constructor; name is " + this.name);
   }
   public Child() {
@@ -49,12 +53,15 @@ class Child extends Parent {
   }
   public String getName() {
     System.out.println("Child.getName");
-    return name;
+    return /*this.*/name;
   }
   static { System.out.println("Child static init 2; stat is " + stat); }
 }
 
 public class E3Initialization {
+  static {
+    System.out.println("Initializing E3Initialization");
+  }
   public static void main(String[] args) {
     System.out.println("Main starting");
     Child c = null;

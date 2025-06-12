@@ -11,7 +11,9 @@ public class E1IfElse {
 
     System.out.println("All done");
 
-    if (false) {
+    final boolean DEBUG = false;
+    if (DEBUG) {
+//    if (false) {
       System.out.println("Never, but allowed"); // "conditional compilation"
     }
 

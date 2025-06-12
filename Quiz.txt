@@ -54,6 +54,15 @@ for (final String n : names) {
 ----------------------------
 Using Object-Oriented Concepts in Java
 
+Q) given:
+class Outer {
+  class Inner {
+  }
+}
+what happens if I call:
+new Inner();
+and what might I do to fix it?
+
 1) When, if at all, is the first StringBuilder object eligible for garbage collection?
 StringBuilder sb = new StringBuilder("X"); // object created here
 sb.append("Y");

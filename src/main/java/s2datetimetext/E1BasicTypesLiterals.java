@@ -2,6 +2,8 @@ package s2datetimetext;
 
 public class E1BasicTypesLiterals {
   public static void main(String[] args) {
+//    int x1;
+//    System.out.println(x1);
 //    int x1 = 123;
 //    int xBad = 123_456_789_000; // literal is too big for int
 //    long xBad = 123_456_789_000; // really, it's the *literal* that's too big for int
@@ -38,7 +40,7 @@ public class E1BasicTypesLiterals {
 //    short s4 = 1, s5 = 2;
 //    short sBad = s4 + s5; // "at least int", not OK
 
-    Object l1 = 99L;
+    Object l1 = 99;
     System.out.println(l1.getClass());
 
 //    Long lBad = 99; // NOT ok -- autoboxing cannot change "underlying type"
@@ -48,7 +50,12 @@ public class E1BasicTypesLiterals {
 //    var bad;
 //    bad = 10;
 //    var bad = null;
-  }
+
+    Integer xI = Integer.valueOf("99"); // conversion
+    int xi2 = xI; // auto-unboxing
+    long ll1 = xi2; // promotion aka "widening promotion"
+
+  } // main ends  here!!!
 
 //  int getNum() {
 //    if (Math.random() > 0.5) {

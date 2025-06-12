@@ -21,7 +21,7 @@ public class E3PatternSwitch {
 //    Object obj = null; // OK if there's a case for it, Exception otherwise
 //    switch (obj) {
 //      case null -> System.out.println("It's a null!");
-//      case String s -> System.out.println("A String! " + s.length());
+//      case String s/*, StringBuilder s*/ -> System.out.println("A String! " + s.length());
 //      default -> System.out.println("Something else"); // order of "dominating" cases matters
 ////      case null, default -> System.out.println("It's a null or something else!");
 //    }
@@ -45,18 +45,18 @@ public class E3PatternSwitch {
 //    }
 
     // 5 --------------------------------------------------------
-    Object obj = new Customer("Ayo", 1_000);;
-    switch (obj) {
-//      case Customer(var name1, var credit) when credit > 500 ->
-      case Customer(String name1, int credit) when credit > 500 ->
-          System.out.println("Trustworthy Customer " + name1 + " with credit limit " + credit);
-// This is clearly duplicating the previous, but guards are not compared to determine
-// if one dominates another, only unguarded type matches and default can dominate
-      case Customer(String name, int credit) when credit > 500 ->
-          System.out.println("Trustworthy Customer " + name + " with credit limit " + credit);
-// This is fine here, but would dominate the previous case, so cannot precede it
-      case Customer c -> System.out.println("It's a customer " + c);
-      case null, default -> System.out.println("null, or something else");
-    }
+//    Object obj = new Customer("Ayo", 1_000);
+//    switch (obj) {
+////      case Customer(var name1, var credit) when credit > 500 ->
+//      case Customer(String name1, int credit) when credit > 500 ->
+//          System.out.println("Trustworthy Customer " + name1 + " with credit limit " + credit);
+//// This is clearly duplicating the previous, but guards are not compared to determine
+//// if one dominates another, only unguarded type matches and default can dominate
+//      case Customer(String name, int credit) when credit > 500 ->
+//          System.out.println("Trustworthy Customer " + name + " with credit limit " + credit);
+//// This is fine here, but would dominate the previous case, so cannot precede it
+//      case Customer c -> System.out.println("It's a customer " + c);
+//      case null, default -> System.out.println("null, or something else");
+//    }
   }
 }

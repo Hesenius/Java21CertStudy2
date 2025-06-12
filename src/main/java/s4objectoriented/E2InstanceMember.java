@@ -30,7 +30,7 @@ class MyList<E> implements Iterable<E> {
     public boolean hasNext() { return progress < count; }
 
     @Override
-    public E next() {
+    public E next(/*MyIterator this*/) {
       // data refers to the data array member of the "enclosing instance"
       return data[progress++];
 // longhand, or disambiguating form
@@ -41,7 +41,7 @@ class MyList<E> implements Iterable<E> {
     // enclosing instance -- this Iterator object HAS A reference to the
     // enclosing instance, but this is handled "automagically"
 //    public MyIterator() {} // implicitly identical to the following:
-//    public MyIterator(MyList<E> MyList.this) {}
+    public MyIterator(MyList<E> MyList.this) {}
   }
 
   @Override
