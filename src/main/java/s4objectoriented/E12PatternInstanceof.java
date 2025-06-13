@@ -27,11 +27,12 @@ public class E12PatternInstanceof {
     }
 
     if (stuff instanceof List l) {
+//      String o = (String)l.get(0);
       System.out.println("Yes, it's a list, raw, in a pattern");
     }
 
     if (stuff instanceof List<?> lq) {
-//      Object o = lq.get(0);
+      Object o = lq.get(0);
       System.out.println("Also, it's a list, raw, wildcard (still unhelpful)");
     }
 

@@ -56,7 +56,7 @@ public class E1Simple {
       // ineffective with virtual thread
       t.setPriority(4);
 // not legal for virtual thread, default for platform
-//      t.setDaemon(false);
+//      t.setDaemon(true);
       t.start();
     }
     System.out.println("Waiting for tasks to complete");

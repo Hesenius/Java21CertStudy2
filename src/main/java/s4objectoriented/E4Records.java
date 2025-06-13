@@ -10,16 +10,16 @@ record Customer(String name, int creditLimit) {
     System.out.println("initializing Customer");
   }
   // Compact constructor -- this OR canonical constructor is permitted, not both
-//  Customer {
-//    if (name == null || name.length() == 0) throw new IllegalArgumentException("Bad name");
-//    // falls through to compiler-generated code that assigns the fields
-//    // any interaction with the final fields of the components is prohibited here
-//  }
+  Customer {
+    if (name == null || name.length() == 0) throw new IllegalArgumentException("Bad name");
+    // falls through to compiler-generated code that assigns the fields
+    // any interaction with the final fields of the components is prohibited here
+  }
   // Canonical constructor, formal parameter list must EXACTLY match components (including the names)
 //  Customer(String name, int creditLimit) {
 //    // user code, e.g. validation is permitted here
 //    //assignment to the fields created from the components is mandatory here
-////    if (name == null || name.length() == 0) throw new IllegalArgumentException("Bad name");
+//    if (name == null || name.length() == 0) throw new IllegalArgumentException("Bad name");
 //    this.name = name;
 //    this.creditLimit = creditLimit;
 //  }

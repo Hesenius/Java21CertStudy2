@@ -3,6 +3,8 @@ package s7streams;
 import s7streams.utils.School;
 import s7streams.utils.Student;
 
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class E4UsingCollectors {
@@ -17,9 +19,9 @@ public class E4UsingCollectors {
 
   public static void main(String[] args) {
     // get a list of students against each letter grade
-    School.SCHOOL.getStudents().stream()
-        .collect(Collectors.groupingBy(E4UsingCollectors::getGrade))
-        .entrySet() // extract the entry set from the generated Map<String, List<Student>>
+    Map<String, List<Student>> m = School.SCHOOL.getStudents().stream()
+        .collect(Collectors.groupingBy(E4UsingCollectors::getGrade));
+    m.entrySet() // extract the entry set from the generated Map<String, List<Student>>
         .forEach(e -> System.out.println("Students " + e.getValue() + " have grade " + e.getKey()));
     System.out.println("---------------------------");
 
@@ -46,6 +48,7 @@ public class E4UsingCollectors {
         .entrySet() // extract the entry set from the generated Map<String, List<Student>>
         .forEach(e -> System.out.println("Students " + e.getValue() + " have grade " + e.getKey()));
 
+    System.out.println("---------------------------");
     // get a count of students with each letter grade
     School.SCHOOL.getStudents().stream()
         .collect(Collectors.groupingBy(E4UsingCollectors::getGrade,
